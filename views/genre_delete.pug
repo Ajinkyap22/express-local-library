@@ -1,7 +1,7 @@
 extends layout 
 
 block content 
-  h1 #{title}: #{genre.name}
+  h1 #{title} : #{genre.name}
   
   if genre_books.length
 
@@ -13,17 +13,17 @@ block content
 
     dl
     each book in genre_books 
-      dt 
-        a(href=book.url)  #{book.title} 
+      dt(class="pb-2") 
+        a(href=book.url class="text-primary")  #{book.title} 
       dd #{book.summary}
 
   else
 
-    p Do you really want to delete this Genre?
+    p(class="font-weight-bold") Do you really want to delete this Genre?
 
     form(method="post" action="")
       div.form-group
         input#genreid.form-control(type="hidden" name='genreid' required=true value=genre.id)
 
-      button.btn.btn-primary(type="submit") Delete 
+      button.btn.btn-danger(type="submit") Delete 
 

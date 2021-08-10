@@ -5,8 +5,8 @@ block content
 
   ul
     each author in author_list  
-      li 
-        a(href=author.url) #{author.name}
+      li(class="py-3 h6 border-bottom") 
+        a(href=author.url class="text-primary") #{author.name}
         |  (#{author.lifespan_formatted})
     
     else 

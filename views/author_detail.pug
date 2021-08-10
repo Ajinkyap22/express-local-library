@@ -1,8 +1,8 @@
 extends layout 
 
 block content 
-  h1 Author: #{author.name}
-  p #{author.lifespan_formatted}
+  h1 Author : #{author.name}
+  p(class='pt-2') #{author.lifespan_formatted}
 
   div(style="margin-left: 20px; margin-top: 20px")
 
@@ -10,8 +10,8 @@ block content
 
     dl 
       each book in author_books
-        dt 
-          a(href=book.url) #{book.title}
+        dt(class='pb-2') 
+          a(href=book.url class="text-primary") #{book.title}
         dd #{book.summary}
 
       else 
@@ -19,6 +19,6 @@ block content
 
   hr
   p 
-    a(href=`${author.url}/update`) Update Author  
+    a(href=`${author.url}/update` class="text-primary font-weight-bold") Update Author  
   p 
-    a(href=`${author.url}/delete`) Delete Author  
+    a(href=`${author.url}/delete` class="text-danger font-weight-bold") Delete Author  

@@ -281,10 +281,7 @@ exports.book_update_post = [
   // Validate & sanitize
   body("title", "Title cannot be empty").trim().isLength({ min: 1 }).escape(),
   body("author", "Author cannot be empty").trim().isLength({ min: 1 }).escape(),
-  body("summary", "Summary cannot be empty")
-    .trim()
-    .isLength({ min: 1 })
-    .escape(),
+  body("summary", "Summary cannot be empty").trim().isLength({ min: 1 }),
   body("isbn", "ISBN cannot be empty").trim().isLength({ min: 1 }).escape(),
   body("genre.*").escape(),
 

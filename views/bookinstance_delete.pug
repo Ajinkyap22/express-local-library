@@ -3,10 +3,10 @@ extends layout
 block content
   h1= title
 
-  p Do you really want to delete this Book Instance?
+  p(class="font-weight-bold") Do you really want to delete this Book Instance?
 
   form(method="post" action="")
     div.form-group
       input#binstanceid.form-control(type="hidden" name="binstanceid" required=true value=book_instance._id)
 
-    button.btn.btn-primary(type="submit") Delete
+    button.btn.btn-danger(type="submit") Delete

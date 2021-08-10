@@ -1,7 +1,7 @@
 extends layout 
 
 block content 
-  h1 #{title}: #{author.name}
+  h1 #{title} : #{author.name}
   p= author.lifespan_formatted
 
   if author_books.length
@@ -14,15 +14,15 @@ block content
 
       dl 
       each book in author_books
-        dt 
-          a(href=book.url) #{book.title}
+        dt(class="pb-2") 
+          a(href=book.url class="text-primary") #{book.title}
         dd #{book.summary}
 
   else 
-    p Do you really want to delete this Author?
+    p(class="font-weight-bold") Do you really want to delete this Author?
 
     form(method="post" action="")  
       div.form-group
         input#authorid.form-control(type="hidden" name="authorid" required=true value=author._id)
       
-      button.btn.btn-primary(type="submit") Delete
+      button.btn.btn-danger(type="submit") Delete

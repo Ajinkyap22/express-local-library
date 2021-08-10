@@ -5,22 +5,22 @@ block content
 
   form(method="post" action="")
     div.form-group
-      label(for="first_name" class="pt-2 font-weight-bold") First Name:
+      label(for="first_name" class="pt-2 font-weight-bold") First Name :
       input#first_name.form-control(type="text" placeholder="First name" name="first_name" required=true value=(undefined === author ? '' : author.first_name))
-      label(for="family_name" class="pt-2 font-weight-bold") Family Name:
+      label(for="family_name" class="pt-2 font-weight-bold") Family Name :
       input#family_name.form-control(type="text" placeholder="Family name (last name)" name="family_name" required=true value=(undefined === author ? '' : author.family_name))
     
     div.form-group
-      label(for="date_of_birth" class="font-weight-bold") Date of birth:
+      label(for="date_of_birth" class="font-weight-bold") Date of birth :
       input#date_of_birth.form-control(type="date" name="date_of_birth" required=true value=(undefined === author ? '' : author.date_of_birth_formatted))
     
     div.form-group  
-      label(for="date_of_death" class="font-weight-bold") Date of death:
+      label(for="date_of_death" class="font-weight-bold") Date of death :
       input#date_of_death.form-control(type="date" name="date_of_death"  value=(undefined === author ? '' : author.date_of_death_formatted))
     
     button.btn.btn-primary(type="submit") Submit
   
   if errors
-    ul
+    ul(class="py-3 text-danger")
       for error in errors
         li!= error.msg

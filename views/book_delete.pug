@@ -1,15 +1,15 @@
 extends layout 
 
 block content 
-  h1 #{title}: #{book.title}
+  h1 #{title} : #{book.title}
   
-  p #[strong Author:] 
-    a(href=book.author.url) #{book.author.name}
-  p #[strong Summary]: #{book.summary}
-  p #[strong ISBN]: #{book.isbn}
-  p #[strong Genre:] 
+  p #[strong Author :] 
+    a(href=book.author.url class="text-primary") #{book.author.name}
+  p #[strong Summary :] #{book.summary}
+  p #[strong ISBN :] #{book.isbn}
+  p #[strong Genre :] 
     each val in book.genre
-      a(href=val.url) #{val.name}
+      a(href=val.url class="text-primary") #{val.name}
       |, 
 
   if book_instances.length 
@@ -28,17 +28,17 @@ block content
             p.text-danger #{book_copy.status}
           else
             p.text-warning #{book_copy.status} 
-          p #[strong Imprint:] #{book_copy.imprint}
+          p #[strong Imprint :] #{book_copy.imprint}
           if book_copy.status!='Available'
-            p #[strong Due back:] #{book_copy.due_back}
-          p #[strong Id:] 
-            a(href=book_copy.url) #{book_copy._id}
+            p #[strong Due back :] #{book_copy.due_back}
+          p #[strong ID :] 
+            a(href=book_copy.url class="text-primary") #{book_copy._id}
 
   else 
-   p Do you really want to delete this Book?
+   p(class="font-weight-bold") Do you really want to delete this Book?
 
    form(method="post" action="")  
       div.form-group
         input#bookid.form-control(type="hidden" name="bookid" required=true value=book._id)
       
-      button.btn.btn-primary(type="submit") Delete 
+      button.btn.btn-danger(type="submit") Delete 

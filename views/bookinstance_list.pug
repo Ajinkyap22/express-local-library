@@ -5,14 +5,14 @@ block content
 
   ul
     each val in bookinstance_list 
-      li 
-        a(href=val.url) #{val.book.title} : #{val.imprint} - 
+      li(class="py-3 h6 border-bottom")
+        a(href=val.url class="text-primary") #{val.book.title} : #{val.imprint} - 
         if val.status == 'Available'
           span.text-success #{val.status}
         else if val.status == 'Maintenance'
           span.text-danger #{val.status}
         else 
-          span.text-warning #{val.status}
+          span.text-warning.font-weight-bold #{val.status}
         if val.status!= 'Available'
           span  (Due: #{val.due_back_formatted})
 

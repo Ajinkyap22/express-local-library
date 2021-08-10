@@ -3,23 +3,23 @@ extends layout
 block content 
   h1 ID: #{bookinstance._id}
 
-  p #[strong Title:] 
-    a(href=bookinstance.book.url) #{bookinstance.book.title}
-  p #[strong Imprint:] #{bookinstance.imprint}
+  p #[strong Title :] 
+    a(href=bookinstance.book.url class="text-primary") #{bookinstance.book.title}
+  p #[strong Imprint :] #{bookinstance.imprint}
 
-  p #[strong Status:] 
+  p #[strong Status :] 
     if bookinstance.status == 'Available'
       span.text-success #{bookinstance.status} 
     else if bookinstance.status == 'Maintenance'
       span.text-danger #{bookinstance.status} 
     else
-      span.text-warning #{bookinstance.status}
+      span.text-warning.font-weight-bold #{bookinstance.status}
 
     if bookinstance.status != 'Available'
-      p #[strong Due Back:] #{bookinstance.due_back_formatted}
+      p #[strong Due Back :] #{bookinstance.due_back_formatted}
 
   hr
   p 
-    a(href=`${bookinstance.url}/update`) Update Book Instance
+    a(href=`${bookinstance.url}/update` class='text-primary font-weight-bold') Update Book Instance
   p 
-    a(href=`${bookinstance.url}/delete`) Delete Book Instance
+    a(href=`${bookinstance.url}/delete` class='text-danger font-weight-bold') Delete Book Instance

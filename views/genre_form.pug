@@ -5,11 +5,11 @@ block content
 
   form(method='post' action="") 
     div.form-group
-      label(for="name") Genre:
+      label(for="name" class="pt-2 font-weight-bold") Genre :
       input#name.form-control(type="text" placeholder="Fantasy, Poetry, etc." name="name" value=(undefined === genre ? "" : genre.name), required=true)
     button.btn.btn-primary(type="submit") Submit
 
   if errors
-    ul
+    ul(class="py-3 text-danger")
       for err in errors 
         li!= err.msg

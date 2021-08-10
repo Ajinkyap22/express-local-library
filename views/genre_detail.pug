@@ -1,7 +1,7 @@
 extends layout 
 
 block content 
-  h1 Genre: #{genre.name}
+  h1 Genre : #{genre.name}
 
   div(style="margin-left: 20px; margin-top: 20px")
 
@@ -9,8 +9,8 @@ block content
 
     dl 
       each book in genre_books 
-        dt 
-          a(href=book.url) #{book.title}
+        dt(class='pb-2')
+          a(href=book.url class='text-primary') #{book.title}
         dd #{book.summary}
 
       else 
@@ -18,6 +18,6 @@ block content
   
   hr
   p
-    a(href=`${genre.id}/update`) Update Genre
+    a(href=`${genre.id}/update` class='text-primary font-weight-bold') Update Genre
   p
-    a(href=`${genre.id}/delete`) Delete Genre
+    a(href=`${genre.id}/delete` class='text-danger font-weight-bold') Delete Genre

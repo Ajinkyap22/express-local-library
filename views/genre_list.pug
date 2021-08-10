@@ -5,8 +5,8 @@ block content
 
   ul 
     each genre in genre_list 
-      li 
-        a(href=genre.url) #{genre.name}
+      li(class="py-3 h6 border-bottom") 
+        a(href=genre.url class="text-primary") #{genre.name}
 
     else 
       li There are no genres.  

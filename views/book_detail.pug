@@ -1,15 +1,15 @@
 extends layout 
 
 block content 
-  h1 Title: #{book.title}
+  h1 Title : #{book.title}
 
-  p #[strong Author:]
-    a(href=book.author.url)  #{book.author.name}
-  p #[strong Summary:]  #{book.summary}
-  p #[strong ISBN:] #{book.isbn}
-  p #[strong Genre:]
+  p(class="pt-2") #[strong Author :]
+    a(href=book.author.url class="text-primary")  #{book.author.name}
+  p(class="pt-2") #[strong Summary :]  #{book.summary}
+  p(class="pt-2") #[strong ISBN :] #{book.isbn}
+  p(class="pt-2") #[strong Genre :]
     each genre, index in book.genre
-      a(href=genre.url)  #{genre.name}
+      a(href=genre.url class="text-primary")  #{genre.name}
       if index < book.genre.length - 1
         | ,
 
@@ -24,17 +24,17 @@ block content
         p.text-danger #{copy.status}
       else 
         p.text-warning #{copy.status}
-      p #[strong Imprint:]  #{copy.imprint}
+      p #[strong Imprint :]  #{copy.imprint}
       if copy.status != 'Available'
-        p #[strong Due Back]: #{copy.due_back_formatted}
-      p #[strong ID:]
-        a(href=copy.url)  #{copy.id}
+        p #[strong Due Back :] #{copy.due_back_formatted}
+      p #[strong ID :]
+        a(href=copy.url class="text-primary")  #{copy.id}
 
     else 
       p There are no copies of this book in the library 
 
   hr
   p
-    a(href=`${book.url}/update`) Update Book 
+    a(href=`${book.url}/update` class="text-primary font-weight-bold") Update Book 
   p 
-    a(href=`${book.url}/delete`) Delete Book 
+    a(href=`${book.url}/delete` class="text-danger font-weight-bold") Delete Book 
